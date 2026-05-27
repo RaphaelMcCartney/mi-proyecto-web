@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Proyectos COIL</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; padding: 20px; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h2, h3 { color: #0078d4; }
+        label { display: block; margin-top: 15px; font-weight: bold; }
+        input, select { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 15px; margin-top: 25px; background-color: #0078d4; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; }
+        button:hover { background-color: #005a9e; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Registro de Colaboración COIL</h2>
+    <form id="registroCoilForm">
+        <h3>Datos del Profesor</h3>
+        <label>Nombre del Profesor</label>
+        <input type="text" id="nombreProfesor" required>
+        
+        <label>Correo</label>
+        <input type="email" id="correo" required>
+        
+        <label>Universidad</label>
+        <input type="text" id="universidad" required>
+        
+        <label>País</label>
+        <input type="text" id="pais" required>
+        
+        <label>Región</label>
+        <input type="text" id="region" required>
+
+        <h3>Detalles del Proyecto</h3>
+        <label>Área Académica</label>
+        <input type="text" id="areaAcademica" required>
+        
+        <label>Nombre de la Licenciatura, Maestría o Doctorado</label>
+        <input type="text" id="nombrePrograma" required>
+        
+        <label>Periodo de Colaboración COIL</label>
+        <input type="text" id="periodo" placeholder="Ej: Agosto - Diciembre 2026" required>
+        
+        <label>Nombre del Proyecto COIL</label>
+        <input type="text" id="nombreProyecto" required>
+        
+        <label>Total de estudiantes</label>
+        <input type="number" id="totalEstudiantes" required>
+
+        <h3>Datos del Profesor PAR</h3>
+        <label>Nombre del Profesor PAR</label>
+        <input type="text" id="nombrePar" required>
+        
+        <label>País del Profesor PAR</label>
+        <input type="text" id="paisPar" required>
+        
+        <label>Universidad del Profesor PAR</label>
+        <input type="text" id="universidadPar" required>
+        
+        <label>Total de estudiantes del Profesor Par</label>
+        <input type="number" id="totalEstudiantesPar" required>
+        
+        <button type="submit">Guardar Registro</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('registroCoilForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Objeto con los datos listos para enviar a Azure
+        const formData = {
+            nombreProfesor: document.getElementById('nombreProfesor').value,
+            correo: document.getElementById('correo').value,
+            universidad: document.getElementById('universidad').value,
+            pais: document.getElementById('pais').value,
+            region: document.getElementById('region').value,
+            areaAcademica: document.getElementById('areaAcademica').value,
+            nombrePrograma: document.getElementById('nombrePrograma').value,
+            periodo: document.getElementById('periodo').value,
+            nombreProyecto: document.getElementById('nombreProyecto').value,
+            totalEstudiantes: document.getElementById('totalEstudiantes').value,
+            nombrePar: document.getElementById('nombrePar').value,
+            paisPar: document.getElementById('paisPar').value,
+            universidadPar: document.getElementById('universidadPar').value,
+            totalEstudiantesPar: document.getElementById('totalEstudiantesPar').value
+        };
+
+        console.log("Datos capturados:", formData);
+        alert("Formulario enviado correctamente. Los datos han sido capturados.");
+    });
+</script>
+
+</body>
+</html>
